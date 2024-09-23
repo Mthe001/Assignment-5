@@ -12,9 +12,6 @@ const modalInfoEl = document.getElementById('my_modal_5');
 const historyInfoEl = document.getElementById('history-checked-box');
 
 
-const donatePlace = document.getElementById('donate-title-1');
-const donatePlace2 = document.getElementById('donate-title-2');
-const donatePlace3 = document.getElementById('donate-title-3');
 
 
 
@@ -37,6 +34,12 @@ document.querySelectorAll(".donate-btn").forEach(function (button, index) {
   button.addEventListener("click", function () {
     const donateInputEl = document.querySelectorAll(".donate-input")[index];
     const donateBalanceEl = document.querySelectorAll(".balance-value")[index];
+
+
+    
+    const donationCard = button.closest(".donation-card");
+
+    const cardTitle = donationCard.querySelector(".card-title").innerText;
     const donateNum = donateInputEl.value;
     const balance = mainBalance.innerText;
     if (donateNum > 0 && balance > 0) {
@@ -54,10 +57,12 @@ document.querySelectorAll(".donate-btn").forEach(function (button, index) {
           historyInfoEl.innerHTML += ` <li class="  flex justify-center items-center font-semibold text-lg p-4">
             <span>${donateNum}</span>
           <span>Taka is </span>
-          <span>${donatePlace.innerText}</span>
+          <span>${cardTitle}</span>
 
-          </li>
+          </li> 
           `
+        
+
 
           historyInfoEl.innerHTML += ` <li class=" flex justify-center items-center font-semibold text-lg p-2">
           
